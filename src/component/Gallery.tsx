@@ -52,12 +52,11 @@ export function Gallery({ photos }: { photos: string[] }) {
   }, [lightbox, photos.length]);
 
   // Swipe gesture handling for the main carousel
-  const handleDragEnd = (e: any, { offset, velocity }: any) => {
+  const handleDragEnd = (_e: any, { offset, velocity }: any) => {
     const swipePower = Math.abs(offset.x) * velocity.x;
     if (offset.x < -40 || swipePower < -100) next();
     else if (offset.x > 40 || swipePower > 100) prev();
   };
-
   return (
     <div className="relative w-full select-none">
       {/* Premium Infinite Carousel Track */}
