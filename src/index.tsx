@@ -1,14 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  CalendarPlus,
-  MapPin,
-  Navigation,
-  Clock,
-  Heart,
-  Sparkles,
-} from "lucide-react";
+import { MapPin, Navigation, Clock, Heart, Sparkles } from "lucide-react";
 
 import { Splash } from "./component/Splash";
 import { MusicPlayer } from "./component/Musicplayer";
