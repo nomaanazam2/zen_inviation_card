@@ -114,7 +114,7 @@ export function Splash({
               2. Inner Content Wrapper: Handles the scrolling but visually hides the scrollbar.
               3. Tightened padding (py-8 sm:py-10) so it easily clears a 13-inch laptop height.
             */}
-            <div className="relative z-20 flex w-full flex-col items-center overflow-y-auto px-6 py-8 sm:px-12 sm:py-10 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div className="relative z-20 flex w-full flex-col items-center overflow-y-auto px-6 py-8 [container-type:inline-size] sm:px-12 sm:py-10 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               <Sprig className="h-8 w-36 rotate-180 text-champagne-deep/80 sm:h-10 sm:w-44" />
 
               <p className="mt-4 font-body text-[0.6rem] tracking-luxe text-ink-soft uppercase sm:mt-5 sm:text-[0.68rem]">
@@ -125,12 +125,14 @@ export function Splash({
                 Together with their families
               </p>
 
-              <h1 className="mt-2 font-script text-[2.9rem] leading-[1.05] text-champagne-gradient sm:mt-3 sm:text-6xl">
-                Zeeshan
-                <span className="mx-2 font-display text-3xl not-italic sm:text-4xl">
+              <h1 className="mt-2 w-full min-w-0 text-center whitespace-nowrap overflow-visible font-script leading-[1.15] text-champagne-gradient text-[clamp(1.1rem,8.5cqw,3.75rem)] sm:mt-3">
+                <span className="inline-block">Zeeshan</span>
+
+                <span className="mx-1.5 font-display text-[0.65em] not-italic sm:mx-3">
                   &amp;
                 </span>
-                Sanobar
+
+                <span className="inline-block">Sanobar</span>
               </h1>
 
               <p className="mt-2 font-body text-[0.6rem] tracking-luxe text-ink-soft uppercase sm:mt-3 sm:text-[0.65rem]">
