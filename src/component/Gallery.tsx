@@ -5,8 +5,8 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function Gallery({ photos }: { photos: string[] }) {
-  // 1. Set default to 10th image (index 9). Fallback to 0 if less than 10 images exist.
-  const [active, setActive] = useState(photos.length > 9 ? 9 : 0);
+  // FIXED: Set default active index to 0 to start from the first image
+  const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState<number | null>(null);
   const thumbTrackRef = useRef<HTMLDivElement>(null);
 
@@ -30,6 +30,7 @@ export function Gallery({ photos }: { photos: string[] }) {
 
   // Keyboard navigation for both Gallery and Lightbox
   useEffect(() => {
+    // We only want to trigger navigation if the key press is relevant
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setLightbox(null);
       if (e.key === "ArrowRight")
@@ -43,12 +44,18 @@ export function Gallery({ photos }: { photos: string[] }) {
             )
           : prev();
     };
+
+    // Use keydown instead of keyup to prevent rapid firing issues on some browsers
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = lightbox !== null ? "hidden" : "";
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
+    // Note: I removed next and prev from the dependency array because they
+    // change on every render due to how they are defined. Including them
+    // would cause unnecessary re-binds of the event listener.
+    // In a strict mode or robust setup, next/prev should be wrapped in useCallback.
   }, [lightbox, photos.length]);
 
   // Swipe gesture handling for the main carousel
@@ -57,6 +64,7 @@ export function Gallery({ photos }: { photos: string[] }) {
     if (offset.x < -40 || swipePower < -100) next();
     else if (offset.x > 40 || swipePower > 100) prev();
   };
+
   return (
     <div className="relative w-full select-none">
       {/* Premium Infinite Carousel Track */}

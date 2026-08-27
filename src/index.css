@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* @import "tailwindcss" source(none);
+@source "../src"; */
+@import "tw-animate-css";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -33,6 +37,12 @@
   --color-gold-deep: var(--gold-deep);
   --color-emerald-deep: var(--emerald-deep);
   --color-ivory: var(--ivory);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-champagne: var(--champagne);
+  --color-champagne-deep: var(--champagne-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
   --font-display: "Cormorant Garamond", serif;
   --font-script: "Great Vibes", cursive;
   --font-body: "Jost", sans-serif;
@@ -46,6 +56,14 @@
   --gold: oklch(0.8 0.116 88);
   --gold-soft: oklch(0.885 0.07 92);
   --gold-deep: oklch(0.66 0.11 78);
+
+  /* Invitation card (cover) palette — ivory / cream / champagne */
+  --paper: oklch(0.975 0.012 90);
+  --paper-deep: oklch(0.935 0.021 86);
+  --champagne: oklch(0.845 0.052 84);
+  --champagne-deep: oklch(0.63 0.072 76);
+  --ink: oklch(0.36 0.021 72);
+  --ink-soft: oklch(0.54 0.024 76);
 
   --background: oklch(0.19 0.05 168);
   --foreground: oklch(0.96 0.015 92);
@@ -135,6 +153,64 @@
 @utility gold-rule {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+}
+
+@utility invite-stage {
+  background: radial-gradient(
+    120% 90% at 50% 0%,
+    oklch(0.94 0.02 88) 0%,
+    oklch(0.9 0.026 84) 55%,
+    oklch(0.85 0.032 80) 100%
+  );
+}
+
+@utility invite-paper {
+  background: radial-gradient(
+    120% 80% at 50% 0%,
+    var(--paper) 0%,
+    var(--paper-deep) 100%
+  );
+  box-shadow: 0 40px 90px -40px oklch(0.36 0.021 72 / 45%),
+    0 2px 0 0 oklch(1 0 0 / 60%) inset;
+}
+
+@utility invite-grain {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: radial-gradient(
+      oklch(0.63 0.072 76 / 10%) 0.5px,
+      transparent 0.5px
+    );
+    background-size: 3px 3px;
+  }
+}
+
+@utility text-champagne-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--champagne-deep) 0%,
+    var(--champagne) 42%,
+    oklch(0.72 0.078 80) 70%,
+    var(--champagne-deep) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility champagne-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--champagne-deep) 50%,
+    transparent
+  );
 }
 
 @utility tracking-luxe {
