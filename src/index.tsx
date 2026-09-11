@@ -4,6 +4,14 @@ import { MapPin, Navigation, Clock, Heart, Sparkles } from "lucide-react";
 import img_1 from "./assets/photos/img_1.jpg";
 import img_2 from "./assets/photos/img_2.jpg";
 import img_3 from "./assets/photos/img_3.jpg";
+import img_5 from "./assets/photos/img_5.jpg";
+import img_7 from "./assets/photos/img_7.jpg";
+import img_8 from "./assets/photos/img_8.jpg";
+import img_9 from "./assets/photos/img_9.jpg";
+import img_10 from "./assets/photos/img_10.jpg";
+import img_12 from "./assets/photos/img_12.jpg";
+import img_14 from "./assets/photos/img_14.jpg";
+
 import { Splash } from "./component/SplashV2";
 import { MusicPlayer } from "./component/Musicplayer";
 import { Countdown } from "./component/Countdown";
@@ -23,6 +31,7 @@ export default function WalimaPage() {
 const VENUE_QUERY = "Blessings Banquet Hall, Doharra Mafi, Aligarh 202001";
 
 const GALLERY = [
+  img_12,
   "https://res.cloudinary.com/m82ighev/image/upload/v1787551453/IMG-20260823-WA0009_1.jpg",
   "https://res.cloudinary.com/m82ighev/image/upload/v1787551454/IMG-20260823-WA0015.jpg",
   "https://res.cloudinary.com/m82ighev/image/upload/v1787551453/IMG-20260823-WA0023.jpg",
@@ -34,6 +43,12 @@ const GALLERY = [
   img_1,
   img_2,
   img_3,
+  img_5,
+  img_7,
+  img_8,
+  img_9,
+  img_10,
+  img_14,
 ];
 
 const RSVP = ["Abdul Mannan", "Abdul Dayyan", "Reyazul Hasan", "Qaisar Umar"];
@@ -281,7 +296,7 @@ function Invitation() {
           {/* Gallery */}
           <Section>
             <Reveal>
-              <SectionTitle>Moments &amp; Memories</SectionTitle>
+              <SectionTitle>With Love, From our Family</SectionTitle>
               <Divider className="mt-5" />
             </Reveal>
 
