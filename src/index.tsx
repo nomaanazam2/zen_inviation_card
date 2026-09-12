@@ -11,6 +11,8 @@ import img_9 from "./assets/photos/img_9.jpg";
 import img_10 from "./assets/photos/img_10.jpg";
 import img_12 from "./assets/photos/img_12.jpg";
 import img_14 from "./assets/photos/img_14.jpg";
+import img_15 from "./assets/photos/img_15.jpg";
+import img_16 from "./assets/photos/img_16.jpg";
 
 import { Splash } from "./component/SplashV2";
 import { MusicPlayer } from "./component/Musicplayer";
@@ -33,19 +35,17 @@ const VENUE_QUERY = "Blessings Banquet Hall, Doharra Mafi, Aligarh 202001";
 const GALLERY = [
   img_12,
   "https://res.cloudinary.com/m82ighev/image/upload/v1787551453/IMG-20260823-WA0009_1.jpg",
-  "https://res.cloudinary.com/m82ighev/image/upload/v1787551454/IMG-20260823-WA0015.jpg",
+  img_15,
+  img_5,
   "https://res.cloudinary.com/m82ighev/image/upload/v1787551453/IMG-20260823-WA0023.jpg",
+  img_16,
   "https://res.cloudinary.com/m82ighev/image/upload/v1787551453/IMG-20260823-WA0019.jpg",
-  "https://res.cloudinary.com/m82ighev/image/upload/v1787551453/IMG-20260823-WA0005.jpg",
   "https://res.cloudinary.com/m82ighev/image/upload/v1787551452/IMG-20260823-WA0030_1.jpg",
   "https://res.cloudinary.com/m82ighev/image/upload/v1787551452/IMG-20260823-WA0000_1.jpg",
   "https://res.cloudinary.com/m82ighev/image/upload/v1787551451/IMG-20260823-WA0002.jpg",
   img_1,
-  img_2,
   img_3,
-  img_5,
   img_7,
-  img_8,
   img_9,
   img_10,
   img_14,
