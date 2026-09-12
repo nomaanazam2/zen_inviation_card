@@ -75,7 +75,6 @@ export function Gallery({ photos }: { photos: string[] }) {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.2}
               onDragEnd={handleDragEnd}
-              onClick={() => (isActive ? setLightbox(i) : setActive(i))}
               initial={false}
               animate={{
                 x: `${diff * 85}%`,
@@ -86,26 +85,33 @@ export function Gallery({ photos }: { photos: string[] }) {
                 z: Math.abs(diff) * -100,
               }}
               transition={{ duration: 0.8, ease: EASE }}
-              className={`absolute aspect-[4/5] w-[75%] max-w-[380px] shrink-0 overflow-hidden rounded-[2rem] bg-stone-900 shadow-2xl sm:w-[45%] ${
-                isActive
-                  ? "cursor-zoom-in ring-1 ring-gold/40 shadow-gold/10"
-                  : "cursor-pointer"
-              }`}
+              className={
+                "absolute aspect-[4/5] w-[75%] max-w-[380px] shrink-0 overflow-hidden rounded-[2rem] bg-stone-900 shadow-2xl sm:w-[45%]"
+              }
             >
+              {/* 1. Blurred Background Image */}
               <img
                 src={src}
                 alt=""
                 className="absolute inset-0 h-full w-full scale-125 object-cover opacity-40 blur-xl saturate-50"
               />
-              <img
-                src={src}
-                alt={`Wedding memory ${i + 1}`}
-                loading={i < 5 ? "eager" : "lazy"}
-                className="relative h-full w-full object-contain p-2 drop-shadow-2xl transition-transform duration-[1500ms] ease-out hover:scale-[1.02]"
-              />
-              <div className="pointer-events-none absolute inset-4 rounded-[1.25rem] border border-white/20 mix-blend-overlay" />
+
+              {/* 2. Wrapper perfectly constrained to the inner border area */}
+              <div className="absolute inset-4 z-10 overflow-hidden rounded-[1.25rem]">
+                <img
+                  src={src}
+                  alt={`Wedding memory ${i + 1}`}
+                  loading={i < 5 ? "eager" : "lazy"}
+                  className="h-full w-full object-contain drop-shadow-2xl transition-transform duration-[1500ms] ease-out hover:scale-[1.05]"
+                />
+              </div>
+
+              {/* 3. Inner Border Overlay */}
+              <div className="pointer-events-none absolute inset-4 z-20 rounded-[1.25rem] border border-white/20 mix-blend-overlay" />
+
+              {/* 4. Inactive Dark Overlay */}
               <div
-                className={`pointer-events-none absolute inset-0 bg-black/60 backdrop-blur-[2px] transition-all duration-700 ${
+                className={`pointer-events-none absolute inset-0 z-30 bg-black/60 backdrop-blur-[2px] transition-all duration-700 ${
                   isActive ? "opacity-0" : "opacity-100"
                 }`}
               />
